@@ -19,14 +19,17 @@ io.on('connection', (client) => {
         let personas = usuarios.agergarPersona(client.id, data.nombre, data.sala);
         // notifica solo a los usuarios de la misma sala
         client.broadcast.to(data.sala).emit('listaPersonas', usuarios.getPersonasXsalas(data.sala));
+        client.broadcast.to(data.sala).emit('creaMensaje', crearMensaje('Administrador', `${data.nombre} ingreso al chat.`));
         callback(usuarios.getPersonasXsalas(data.sala));
     });
 
-    client.on('crearMensajeTodos', (data) => {
-        console.log('creaMensajeTodos');
+    client.on('creaMensaje', (data, callback) => {
+        //console.log('creaMensaje');
         let persona = usuarios.getPersona(client.id);
         let mensaje = crearMensaje(persona.nombre, data.mensaje);
         client.broadcast.to(persona.sala).emit('creaMensaje', mensaje);
+        callback(mensaje);
+        scrollBottom();
     });
 
     client.on('disconnect', () => {
