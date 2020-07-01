@@ -1391,7 +1391,7 @@ File: scss
 }
 
 .fix-header .page-wrapper {
-    padding-top: 70px;
+    padding-top: 5px;
 }
 
 .fix-header .right-side-panel {
@@ -7932,7 +7932,7 @@ File: scss
     /*Sidebar and wrapper*/
     .mini-sidebar .page-wrapper {
         margin-left: 0px;
-        padding-top: 70px;
+        padding-top: 10px;
     }
     .comment-text .comment-footer .action-icons {
         display: block;
