@@ -11,4 +11,5 @@ npm install
 "socket.io": "^2.0.4"
 ```
 ejecutar: node server/server
+subido a heroku: https://djchatsocket.herokuapp.com/
 ```
