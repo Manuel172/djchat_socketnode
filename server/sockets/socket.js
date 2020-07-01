@@ -29,7 +29,6 @@ io.on('connection', (client) => {
         let mensaje = crearMensaje(persona.nombre, data.mensaje);
         client.broadcast.to(persona.sala).emit('creaMensaje', mensaje);
         callback(mensaje);
-        scrollBottom();
     });
 
     client.on('disconnect', () => {
