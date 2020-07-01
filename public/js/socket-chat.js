@@ -1,5 +1,6 @@
 var socket = io();
 
+
 // recepción del usuario que se esta conectando
 var params = new URLSearchParams(window.location.search);
 if (!params.has('nombre') || !params.has('sala')) {
@@ -36,6 +37,7 @@ socket.on('disconnect', function() {
 socket.on('creaMensaje', function(mensaje) {
     //console.log('Servidor:', mensaje);
     renderizarMensajes(mensaje, false);
+    scrollBottom();
 });
 
 
